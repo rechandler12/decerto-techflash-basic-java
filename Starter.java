@@ -11,7 +11,12 @@ public class Starter {
 //        System.out.println(conditional());
 //        loopFor();
 //        loopWhile();
-        fillList();
+//        throwRuntimeException();
+        try {
+            throwException();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static String conditional() {
@@ -99,24 +104,52 @@ public class Starter {
 
     public static void fillArray() {
         // Zad 6.
+        List<String> list = new ArrayList<>();
+        String[] arr = new String[100];
+
+
         /*
         Stwórz tablicę, dodawaj do niej elementy (String), dopóki nie będzie wprowadzony pusty String
         Następnie wypisz tablicę
         */
     }
 
-    public static void throwRuntimeException() {
+    public static String throwRuntimeException() {
         // Zad 7.
         /*
         Zmodyfikuj zadanie 2 o obsługę warunków brzegowych, rzuć IllegalStateException z odpowiednim message
         */
+
+        System.out.print("Podaj liczbe: ");
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        int liczba = Integer.parseInt(s);
+
+        if (liczba > 10) {
+            return "Większa niż 10!";
+        } else if (liczba < 10) {
+            return "Mniejsza niż 10!";
+        }
+        throw new IllegalStateException("Liczba rowna 10!");
     }
 
-    public static void throwException() {
+    public static String throwException() throws Exception {
         // Zad 8.
         /*
         Zmodyfikuj zadanie 2 o obsługę warunków brzegowych, rzuć Exception z odpowiednim message
         Złap go w metodzie main i przekształć na odpowiednią zwrotkę na konsolę
         */
+
+        System.out.print("Podaj liczbe: ");
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        int liczba = Integer.parseInt(s);
+
+        if (liczba > 10) {
+            return "Większa niż 10!";
+        } else if (liczba < 10) {
+            return "Mniejsza niż 10!";
+        }
+        throw new Exception("Liczba rowna 10!");
     }
 }
