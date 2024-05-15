@@ -1,7 +1,17 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Starter {
     public static void main(String[] args) {
         // Zad 1.
         // Wypisz na konsoli Hello World!
+
+        System.out.println("Hello World!");
+//        System.out.println(conditional());
+//        loopFor();
+//        loopWhile();
+        fillList();
     }
 
     public static String conditional() {
@@ -10,7 +20,18 @@ public class Starter {
         Wczytaj liczbę od użytkownika i jeśli jest większa niż 10 to wypisz "Większa niż 10!", a jeśli jest mniejsza to
         wypisz "Mniejsza niż 10!"
         */
-        return "";
+
+        System.out.print("Podaj liczbe: ");
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        int liczba = Integer.parseInt(s);
+
+        if (liczba > 10) {
+            return "Większa niż 10!";
+        } else if (liczba < 10) {
+            return "Mniejsza niż 10!";
+        }
+        return "Równa 10!";
     }
 
     public static void loopFor() {
@@ -19,6 +40,15 @@ public class Starter {
         Wypisz "Przebieg pętli for [X]!", gdzie X to, który przebieg pętli, a liczbę przebiegów ma wprowadzić user.
         Użyj pętli for
         */
+
+        System.out.print("Podaj liczbe: ");
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        int liczba = Integer.parseInt(s);
+
+        for (int i = 0; i < liczba; i++) {
+            System.out.println("Przebieg pętli for [" + i + "]!");
+        }
     }
 
     public static void loopWhile() {
@@ -27,14 +57,44 @@ public class Starter {
         Wypisz "Przebieg pętli while [X]!", gdzie X to, który przebieg pętli, a liczbę przebiegów ma wprowadzić user.
         Użyj pętli while
         */
+
+        System.out.print("Podaj liczbe: ");
+        Scanner in = new Scanner(System.in);
+        String s = in.nextLine();
+        int liczba = Integer.parseInt(s);
+
+        int i = 0;
+        while (i < liczba) {
+            System.out.println("Przebieg pętli while [" + i + "]!");
+            i++;
+        }
     }
 
     public static void fillList() {
         // Zad 5.
         /*
         Stwórz listę, dodawaj do niej elementy (String), dopóki nie będzie wprowadzony pusty String
-        Następnie wypisz tablicę
+        Następnie wypisz każdy element listy
         */
+
+        List<String> list = new ArrayList<>();
+        Scanner in = new Scanner(System.in);
+        while (true) {
+            System.out.print("Podaj element: ");
+            String s = in.nextLine();
+            if (s == null || s.isEmpty()) {
+                break;
+            }
+            list.add(s);
+        }
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+    }
+
+    private static boolean isEmpty(String str) {
+        return str == null || str.isEmpty();
     }
 
     public static void fillArray() {
